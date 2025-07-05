@@ -1,13 +1,18 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
     { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
     { name: "Work with me", href: "#work" },
     { name: "Contact", href: "#contact" }
   ];
@@ -25,7 +30,7 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:block">
-            <ul className="flex space-x-8">
+            <ul className="flex space-x-8 items-center">
               {navItems.map((item) => (
                 <li key={item.name}>
                   <a
@@ -36,15 +41,39 @@ const Navigation = () => {
                   </a>
                 </li>
               ))}
+              <li>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button 
+                      variant="ghost" 
+                      className="text-foreground hover:text-primary transition-colors duration-300 font-medium p-0 h-auto bg-transparent hover:bg-transparent"
+                    >
+                      Services <ChevronDown className="ml-1 h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-background border border-border">
+                    <DropdownMenuItem asChild>
+                      <a 
+                        href="#linkedin-services" 
+                        className="cursor-pointer text-foreground hover:text-primary"
+                      >
+                        LinkedIn Services
+                      </a>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <a 
+                        href="#marketing-services" 
+                        className="cursor-pointer text-foreground hover:text-primary"
+                      >
+                        Marketing Services
+                      </a>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </li>
             </ul>
           </nav>
 
-          {/* CTA Button - Desktop */}
-          <div className="hidden md:block">
-            <Button variant="hero" size="lg">
-              Get Started
-            </Button>
-          </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -74,9 +103,21 @@ const Navigation = () => {
               </a>
             ))}
             <div className="px-3 py-2">
-              <Button variant="hero" size="lg" className="w-full">
-                Get Started
-              </Button>
+              <div className="text-foreground font-medium mb-2">Services</div>
+              <a
+                href="#linkedin-services"
+                className="block px-3 py-2 text-foreground hover:text-primary hover:bg-muted transition-colors duration-300 rounded-md ml-4"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                LinkedIn Services
+              </a>
+              <a
+                href="#marketing-services"
+                className="block px-3 py-2 text-foreground hover:text-primary hover:bg-muted transition-colors duration-300 rounded-md ml-4"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Marketing Services
+              </a>
             </div>
           </div>
         </div>

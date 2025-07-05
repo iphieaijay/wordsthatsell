@@ -8,7 +8,8 @@ const HeroSection = () => {
         <img 
           src="/lovable-uploads/d91f23f8-878b-41f9-a04c-f155937e4be0.png" 
           alt="Hero background"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-top"
+          style={{ marginTop: '-100px' }}
         />
       </div>
       {/* Background overlay for depth and readability */}
@@ -30,22 +31,14 @@ const HeroSection = () => {
           service providers, and brands grow without chaos, burnout, or guesswork.
         </p>
         
-        {/* CTA Buttons matching the second image layout */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        {/* CTA Button */}
+        <div className="flex justify-center">
           <Button 
             variant="hero" 
             size="xl"
-            className="w-full sm:w-auto min-w-[220px]"
+            className="w-full sm:w-auto min-w-[220px] cursor-pointer"
           >
-            View LinkedIn Services
-          </Button>
-          
-          <Button 
-            variant="hero" 
-            size="xl"
-            className="w-full sm:w-auto min-w-[220px]"
-          >
-            View Marketing Services
+            Get Started
           </Button>
         </div>
         
