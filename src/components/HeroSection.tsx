@@ -2,9 +2,17 @@ import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden">
-      {/* Background overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background/50 to-background/80"></div>
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <img 
+          src="/lovable-uploads/d91f23f8-878b-41f9-a04c-f155937e4be0.png" 
+          alt="Hero background"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      {/* Background overlay for depth and readability */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background/80 to-background/90"></div>
       
       {/* Main content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in">
