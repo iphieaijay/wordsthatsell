@@ -30,48 +30,51 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:block">
-            <ul className="flex space-x-8 items-center">
-              {navItems.map((item) => (
-                <li key={item.name}>
-                  <a
-                    href={item.href}
-                    className="text-foreground hover:text-primary transition-colors duration-300 font-medium"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-              <li>
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button 
-                      variant="ghost" 
-                      className="text-foreground hover:text-primary transition-colors duration-300 font-medium p-0 h-auto bg-transparent hover:bg-transparent"
-                    >
-                      Services <ChevronDown className="ml-1 h-4 w-4" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="bg-background border border-border">
-                    <DropdownMenuItem asChild>
-                      <a 
-                        href="#linkedin-services" 
-                        className="cursor-pointer text-foreground hover:text-primary"
-                      >
-                        LinkedIn Services
-                      </a>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <a 
-                        href="#marketing-services" 
-                        className="cursor-pointer text-foreground hover:text-primary"
-                      >
-                        Marketing Services
-                      </a>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </li>
-            </ul>
+           <ul className="flex space-x-8 items-center">
+  {navItems.map((item) => (
+    <li key={item.name}>
+      <a
+        href={item.href}
+        className="text-foreground hover:text-primary transition-colors duration-300 font-medium"
+      >
+        {item.name}
+      </a>
+    </li>
+  ))}
+
+  {/* Services (after Contact) */}
+  <li>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button 
+          variant="ghost" 
+          className="text-foreground hover:text-primary transition-colors duration-300 font-medium p-0 h-auto bg-transparent hover:bg-transparent"
+        >
+          Services <ChevronDown className="ml-1 h-4 w-4" />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="bg-background border border-border">
+        <DropdownMenuItem asChild>
+          <a 
+            href="#linkedin-services" 
+            className="cursor-pointer text-foreground hover:text-primary"
+          >
+            LinkedIn Services
+          </a>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <a 
+            href="#marketing-services" 
+            className="cursor-pointer text-foreground hover:text-primary"
+          >
+            Marketing Services
+          </a>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  </li>
+</ul>
+
           </nav>
 
 
@@ -93,32 +96,35 @@ const Navigation = () => {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-b border-border">
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="block px-3 py-2 text-foreground hover:text-primary hover:bg-muted transition-colors duration-300 font-medium rounded-md"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </a>
-            ))}
-            <div className="px-3 py-2">
-              <div className="text-foreground font-medium mb-2">Services</div>
-              <a
-                href="#linkedin-services"
-                className="block px-3 py-2 text-foreground hover:text-primary hover:bg-muted transition-colors duration-300 rounded-md ml-4"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                LinkedIn Services
-              </a>
-              <a
-                href="#marketing-services"
-                className="block px-3 py-2 text-foreground hover:text-primary hover:bg-muted transition-colors duration-300 rounded-md ml-4"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Marketing Services
-              </a>
-            </div>
+  <a
+    key={item.name}
+    href={item.href}
+    className="block px-3 py-2 text-foreground hover:text-primary hover:bg-muted transition-colors duration-300 font-medium rounded-md"
+    onClick={() => setIsMenuOpen(false)}
+  >
+    {item.name}
+  </a>
+))}
+
+{/* Services (after Contact) */}
+<div className="px-3 py-2">
+  <div className="text-foreground font-medium mb-2">Services</div>
+  <a
+    href="#linkedin-services"
+    className="block px-3 py-2 text-foreground hover:text-primary hover:bg-muted transition-colors duration-300 rounded-md ml-4"
+    onClick={() => setIsMenuOpen(false)}
+  >
+    LinkedIn Services
+  </a>
+  <a
+    href="#marketing-services"
+    className="block px-3 py-2 text-foreground hover:text-primary hover:bg-muted transition-colors duration-300 rounded-md ml-4"
+    onClick={() => setIsMenuOpen(false)}
+  >
+    Marketing Services
+  </a>
+</div>
+
           </div>
         </div>
       )}
