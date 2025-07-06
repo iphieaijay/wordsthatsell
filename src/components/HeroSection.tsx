@@ -2,13 +2,13 @@ import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden"> 
+    <section id="hero" className="min-h-screen mt-4 flex items-center justify-center relative overflow-hidden"> 
   {/* Background image */}
-  <div className="absolute inset-0 top-20 ">
+  <div className="absolute inset-0 mt-0">
         <img 
           src="/lovable-uploads/d91f23f8-878b-41f9-a04c-f155937e4be0.png" 
           alt="Hero background"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover mt-4"
         />
       </div>
 
